@@ -1,0 +1,51 @@
+
+<md-content ng-controller="occupantCtrl" style="background-color: #C8E6C9; height: 100%">
+
+	<md-toolbar style="background-color: #C8E6C9; margin-top: 1%">
+      <div class="md-toolbar-tools">
+			<span flex="40"></span>
+			<md-input-container style="margin-bottom: 3px">
+				<input placeholder="Search" ng-model="searchText" type="text"/>
+			</md-input-container>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
+			<md-button class="md-icon-button" style="border: 1px solid black" ng-click="createDialog()">
+				<ng-md-icon icon="create" style="fill: black"></ng-md-icon>
+			</md-button>
+			<span flex="40"></span>
+	  	</div>
+    </md-toolbar>
+    <div style="padding: 0px 5%">
+		<table class="table" style="background-color: white">
+		  	<thead>
+			    <tr style="border-bottom: 1px solid black">
+			    	<!-- <th><input type="checkbox" ng-click="selectAll($event)" ng-checked="isSelectedAll()"/><th> -->
+			      	<th>Matric no</th>
+			      	<th>Name</th>
+			      	<th>Faculty</th>
+			      	<th>Intake</th>
+			      	<th>
+			      		<button ng-click="order('total_merit')">Merit Points</button>
+			      	</th>
+			      	<th>Action</th>
+			    </tr>
+		  	</thead>
+		  	<tbody>
+			    <tr style="background-color: white" ng-repeat="list in studentsData | filter:searchText">
+			    	<!-- ng-class="getSelectedClass(list.matric_no)" <td><input type="checkbox" name="selected" ng-checked="isSelected(list.matric_no)" ng-click="updateSelection($event, list.matric_no)"/><td> -->
+			      	<td>{{ list.matric_no }}</td>
+			      	<td>{{ list.sname }}</td>
+			      	<td>{{ list.faculty }}</td>
+			      	<td>{{ list.intake }}</td>
+			      	<td ng-if="list.total_merit == null">0</td>
+			      	<td ng-if="list.total_merit != null">{{ list.total_merit }}</td>
+			      	<td>
+				      	<a class="btn btn-primary" ng-click="moreDialog(list)" style="height: 25px; padding: 2px 15px; font-size: 12px">More</a>
+				      	<a ng-click="deleteStudent(list.matric_no)" class="btn btn-primary" style="height: 25px; padding: 2px 15px; font-size: 12px">Delete</a>
+				      	<a ng-click="dropStudent(list.matric_no)" class="btn btn-primary" style="height: 25px; padding: 2px 15px; font-size: 12px">Drop</a>
+				    </td>
+			    </tr>
+		  	</tbody>
+		</table>
+	</div>
+
+</md-content>

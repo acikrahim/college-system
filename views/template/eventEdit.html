@@ -1,0 +1,63 @@
+<md-dialog aria-label="Student">
+	<md-toolbar>
+
+		<div class="md-toolbar-tools">
+			<h2>{{ event.ename }}</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" ng-click="cancel()">
+				<ng-md-icon icon="clear" style="fill: black" aria-label="Close Dialog"></ng-md-icon>
+			</md-button>
+		</div>
+
+	</md-toolbar>
+
+	<md-dialog-content style="max-width: 800px; max-height: 600px; min-width: 600px; min-height: 400px">
+		<md-tabs md-dynamic-height md-border-bottom>
+
+			<md-tab label="Edit Event">
+				<md-content class="md-padding">
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Event Name</label>
+							<input placeholder="{{ event.ename }}" ng-model="form.ename" type="text"/>
+					</md-input-container>
+
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Description</label>
+							<input placeholder="{{ event.description }}" ng-model="form.description" type="text"/>
+					</md-input-container>
+
+					<md-datepicker ng-model="edate" md-placeholder="Enter date"></md-datepicker>
+			
+
+					<md-input-container class="md-block" flex-gt-sm>
+		    			<label>{{ event.lname }}</label>
+		    				<md-select ng-model="form.location">
+		          				<md-option ng-repeat="location in locationList" value="{{ location.id }}">
+		          					{{ location.lname }}
+		          				</md-option>
+		    				</md-select>
+		  			</md-input-container>			
+				</md-content>
+			</md-tab>
+
+			<md-tab label="Upload Picture">
+				<md-content class="md-padding">
+					<input type="file" file-model="photo"/><br/><br/>					
+				</md-content>
+			</md-tab>
+
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row">
+		<span flex></span>
+		<md-button class="md-raised md-primary" ng-click="updateEvent()">
+			Update Event
+		</md-button>
+		<md-button class="md-raised md-primary" ng-click="uploadPhoto()" >
+			Upload Photo
+		</md-button>
+	</md-dialog-actions>
+
+</md-dialog>
+
+

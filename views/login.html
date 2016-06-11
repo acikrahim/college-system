@@ -1,0 +1,25 @@
+<md-content class="md-padding" layout-xs="column" layout="row"  layout-align="center center" style="margin-top: 10%; background-color: #C8E6C9">
+    <md-card style="width: 500px">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Please Login to use</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Username</label>
+                    <input placeholder="" ng-model="form.username" type="text"/>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex-gt-sm>
+                <label>Password</label>
+                    <input placeholder="" ng-model="form.password" type="password"/>
+            </md-input-container>
+        </md-card-content>
+
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-raised md-primary" ng-click="login()">Login</md-button>
+        </md-card-actions>
+
+      </md-card>
+</md-content>

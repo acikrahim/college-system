@@ -1,0 +1,42 @@
+<md-content ng-controller="eventCtrl" style="background-color: #C8E6C9; height: 100%">
+
+	<md-toolbar style="background-color: #C8E6C9; margin-top: 1%">
+	  <div class="md-toolbar-tools">
+			<span flex="40"></span>
+			<md-input-container style="margin-bottom: 3px">
+				<input placeholder="Search" ng-model="searchText" type="text"/>
+			</md-input-container>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+			<md-button class="md-icon-button" style="border: 1px solid black" ng-click="createDialog()">
+				<ng-md-icon icon="create" style="fill: black"></ng-md-icon>
+			</md-button>
+			<span flex="40"></span>          
+		</div>
+	</md-toolbar>
+	<div class="md-padding" layout-xs="column" layout="row" layout-wrap>
+		<div ng-repeat="event in eventsData | filter:searchText" flex-xs flex-gt-xs="25" layout="column">
+			<md-card>
+				<md-card-header>
+					<md-card-header-text>
+						<span class="md-title">{{ event.ename }} &nbsp;<ng-md-icon ng-if="event.status == 5 || event.status == 6" icon="done" style="fill: black"></ng-md-icon></span>
+						<span class="md-subhead">{{ event.edate }}</span>
+					</md-card-header-text>
+				</md-card-header>
+					<img style="width: 100%; max-height: 200px" ng-src="{{ event.photolink }}" alt="No image">
+				<md-card-title>
+					<md-card-title-text>
+						<span class="md-subhead">Attendance taking at: {{ event.lname }}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<md-card-actions layout="row" layout-align="space-around end">
+					<md-button class="md-raised md-primary" ng-click="editDialog(event)">Edit</md-button>
+					<md-button class="md-raised md-primary" ng-click="organizerDialog(event)">Organizer</md-button>
+					<md-button class="md-raised md-primary" ng-click="deleteEvent(event.event_id)">Delete</md-button>
+				</md-card-actions>
+				<md-card-content>
+					<p style="text-align: justify">{{ event.description }}</p>
+				</md-card-content>
+			</div>
+	</div>
+</md-content>
+

@@ -1,0 +1,83 @@
+<md-dialog aria-label="Student">
+	<md-toolbar>
+
+		<div class="md-toolbar-tools">
+			<h2>{{ event.ename }}</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" ng-click="cancel()">
+				<ng-md-icon icon="clear" style="fill: black" aria-label="Close Dialog"></ng-md-icon>
+			</md-button>
+		</div>
+
+	</md-toolbar>
+
+	<md-dialog-content style="max-width: 800px; max-height: 600px; min-width: 600px; min-height: 400px">
+		<md-tabs md-dynamic-height md-border-bottom>
+
+			<md-tab label="Add Organizer">
+				<md-content class="md-padding">
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Matric Number</label>
+							<input placeholder="Matric Number" ng-model="form.matric_no" type="text"/>
+					</md-input-container>
+
+					<md-input-container class="md-block" flex-gt-sm>
+		    			<label>Please Choose</label>
+		    				<md-select ng-model="form.responsibility">
+		          				<md-option selected="selected" value="AJK">
+		          					AJK
+		          				</md-option>
+		          				<md-option value="Ketua Projek">
+		          					Ketua Projek
+		          				</md-option>
+		          				<md-option value="Penolong Ketua Projek">
+		          					Penolong Ketua Projek
+		          				</md-option>
+		          				<md-option value="Bendahari">
+		          					Bendahari
+		          				</md-option>
+		    				</md-select>
+		  			</md-input-container>			
+				</md-content>
+			</md-tab>
+
+			<md-tab label="Organizers">
+				<md-content class="md-padding">
+					<table class="table">
+					  	<thead>
+						    <tr>
+						      	<th>Matric No.</th>
+						      	<th>Responsibility</th>
+						      	<th>Action</th>
+						    </tr>
+					  	</thead>
+					  	<tbody>
+						    <tr style="background-color: white" ng-repeat="item in organizerList">
+						      	<td>{{ item.matric_no }}</td>
+						      	<td>{{ item.responsibility }}</td>
+						      	<td>
+						      		<a class="btn" ng-click="deleteOrganizer(item.matric_no)" style="height: 25px; padding: 2px 15px; font-size: 12px">
+										<ng-md-icon icon="clear" style="fill: black"></ng-md-icon>
+									</a>
+						      	</td>
+						    </tr>
+					  	</tbody>
+					</table>
+				</md-content>
+			</md-tab>
+
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row">
+		<span flex></span>
+		<md-button class="md-raised md-primary" ng-click="addOrganizer()" >
+			Add Organizer
+		</md-button>
+		<md-button class="md-raised md-primary" ng-click="cancel()" >
+			Cancel
+		</md-button>
+	</md-dialog-actions>
+
+</md-dialog>
+
+

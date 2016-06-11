@@ -1,0 +1,63 @@
+<md-dialog aria-label="Student">
+	<md-toolbar>
+
+		<div class="md-toolbar-tools">
+			<h2>Create Student</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" ng-click="cancel()">
+				<ng-md-icon icon="clear" style="fill: black" aria-label="Close Dialog"></ng-md-icon>
+			</md-button>
+		</div>
+
+	</md-toolbar>
+
+	<md-dialog-content style="max-width: 800px; max-height: 600px; min-width: 600px; min-height: 400px">	
+		<md-content class="md-padding">
+			<md-input-container class="md-block" flex-gt-sm>
+				<label>Matric No.</label>
+					<input ng-model="form.matric_no" type="number"/>
+			</md-input-container>
+
+			<md-input-container class="md-block" flex-gt-sm>
+				<label>Student's Name</label>
+					<input ng-model="form.sname" type="text"/>
+			</md-input-container>
+
+			<md-input-container class="md-block" flex-gt-sm>
+				<label>Intake</label>
+					<input ng-model="form.intake" type="text"/>
+			</md-input-container>	
+
+			<md-input-container class="md-block" flex-gt-sm>
+    			<label>Faculty</label>
+    				<md-select ng-model="form.faculty">
+          				<md-option value="FEB">
+          					FEB
+          				</md-option>
+          				<md-option value="FSKTM">
+          					FSKTM
+          				</md-option>
+          				<md-option value="FSKPM">
+          					FSKPM
+          				</md-option>
+          				<md-option value="FK">
+          					FK
+          				</md-option>
+          				<md-option value="FSTS">
+          					FSTS
+          				</md-option>
+    				</md-select>
+  			</md-input-container>
+		</md-content>
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row">
+			<span flex></span>
+			<md-button ng-click="createStudent()" >
+				Create Student
+			</md-button>
+	</md-dialog-actions>
+
+</md-dialog>
+
+

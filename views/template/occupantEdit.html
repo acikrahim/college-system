@@ -1,0 +1,128 @@
+<md-dialog aria-label="Student">
+	<md-toolbar>
+
+		<div class="md-toolbar-tools">
+			<h2>{{ student.matric_no }}</h2>
+			<span flex></span>
+			<md-button class="md-icon-button" ng-click="cancel()">
+				<ng-md-icon icon="clear" style="fill: black" aria-label="Close Dialog"></ng-md-icon>
+			</md-button>
+		</div>
+
+	</md-toolbar>
+
+	<md-dialog-content style="max-width: 800px; max-height: 600px; min-width: 600px; min-height: 400px">
+		
+		<md-tabs md-dynamic-height md-border-bottom>
+
+			<md-tab label="Edit Student">
+				<md-content class="md-padding">
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Student's Name</label>
+							<input placeholder="{{ student.sname }}" ng-model="form.sname" type="text"/>
+					</md-input-container>
+
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Intake</label>
+							<input placeholder="{{ student.intake }}" ng-model="form.intake" type="text"/>
+					</md-input-container>	
+
+					<md-input-container class="md-block" flex-gt-sm>
+            			<label>{{ student.faculty }}</label>
+            				<md-select ng-model="form.faculty">
+	              				<md-option value="FEB">
+	              					FEB
+	              				</md-option>
+	              				<md-option value="FSKTM">
+	              					FSKTM
+	              				</md-option>
+	              				<md-option value="FSKPM">
+	              					FSKPM
+	              				</md-option>
+	              				<md-option value="FK">
+	              					FK
+	              				</md-option>
+	              				<md-option value="FSTS">
+	              					FSTS
+	              				</md-option>
+            				</md-select>
+          			</md-input-container>
+
+          							
+				</md-content>
+			</md-tab>
+
+			<md-tab label="Merit">
+				<md-content class="md-padding">
+					<table class="table">
+					  	<tbody>
+						    <tr style="background-color: white">
+						      	<td>
+						      		<md-input-container class="md-block" flex-gt-sm>
+										<label>Event ID</label>
+											<input ng-model="form.event_id" type="text"/>
+									</md-input-container>
+						      	</td>
+						      	<td>
+						      		<md-input-container class="md-block" flex-gt-sm>
+						    			<label>Please Choose</label>
+						    				<md-select ng-model="form.responsibility">
+						          				<md-option selected="selected" value="AJK">
+						          					AJK
+						          				</md-option>
+						          				<md-option value="Ketua Projek">
+						          					Ketua Projek
+						          				</md-option>
+						          				<md-option value="Penolong Ketua Projek">
+						          					Penolong Ketua Projek
+						          				</md-option>
+						          				<md-option value="Bendahari">
+						          					Bendahari
+						          				</md-option>
+						    				</md-select>
+						  			</md-input-container>
+						      	</td>
+						      	<td>
+						      		<md-input-container class="md-block" flex-gt-sm>
+										<label>Merit</label>
+											<input ng-model="form.merit" type="number"/>
+									</md-input-container>
+						      	</td>
+						    </tr>
+					  	</tbody>
+					</table>
+					<table class="table">
+					  	<thead>
+						    <tr>
+						      	<th>Event Name</th>
+						      	<th>Responsibility</th>
+						      	<th>Merit</th>
+						    </tr>
+					  	</thead>
+					  	<tbody>
+						    <tr style="background-color: white" ng-repeat="item in profile">
+						      	<td>{{ item.ename }}</td>
+						      	<td>{{ item.responsibility }}</td>
+						      	<td>{{ item.merit_point }}</td>
+						    </tr>
+					  	</tbody>
+					</table>
+				</md-content>
+			</md-tab> 
+
+		</md-tabs>
+	</md-dialog-content>
+
+	<md-dialog-actions layout="row">
+		<span flex></span>
+		<md-button class="md-raised md-primary" ng-click="updateOccupant()">
+			Update Student
+		</md-button>
+		<md-button class="md-raised md-primary" ng-click="updateMerit()" style="margin-right:20px;" >
+			Update Merit
+		</md-button>
+	</md-dialog-actions>
+
+</md-dialog>
+
+

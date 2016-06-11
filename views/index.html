@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="collegeSystem">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Merit System</title>
+
+  <link rel="stylesheet" href="views/style/bootstrap.css">
+  <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css">
+
+</head>
+<body ng-controller="appCtrl" style="background-color: #C8E6C9">
+
+	<md-toolbar>
+	  	<div class="md-toolbar-tools" style="background-color: #4CAF50">
+			<h2>
+		  		<span ng-if="loginNotPresent">College's Merit System</span>
+		  		<span ng-if="!loginNotPresent">Welcome {{ adminPresent.username }}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		  		<md-button ng-click="logout()" class="md-raised" ng-show="!loginNotPresent">Logout</md-button>
+			</h2>
+			<span flex></span>
+			<md-button href="#/students" class="md-raised" ng-if="!loginNotPresent">Students</md-button>
+			<md-button href="#/occupants" class="md-raised" ng-if="!loginNotPresent">Occupants</md-button>
+			<md-button href="#/events" class="md-raised" ng-if="!loginNotPresent">Events</md-button>
+	  	</div>
+	</md-toolbar>
+
+	<ng-view></ng-view>
+
+</body>
+
+  <!-- <script src="https://code.angularjs.org/1.4.7/angular.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script> -->
+
+  	<script src="../node_modules/angular/angular.js"></script>
+  	<script src="../node_modules/ng-idle/angular-idle.min.js"></script>
+  	<script src="../node_modules/angular-cookies/angular-cookies.min.js"></script>
+  	<script src="../node_modules/angular-route/angular-route.js"></script>
+	<script src="../node_modules/angular-aria/angular-aria.js"></script>
+	<script src="../node_modules/angular-animate/angular-animate.js"></script>
+	<script src="../node_modules/angular-material/angular-material.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
+
+	<script src="views/js/app.js"></script>
+	<script src="views/js/controllersStudent.js"></script>
+	<script src="views/js/controllersOccupant.js"></script>
+	<script src="views/js/controllersEvent.js"></script>
+
+</html>
