@@ -7,5 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-cookies": "^1.5.6",
+    "angular-material": "^1.1.0-rc.5",
+    "angular-route": "^1.5.6",
+    "body-parser": "^1.15.1",
+    "crypto": "0.0.3",
+    "express": "^4.13.4",
+    "multer": "^1.1.0",
+    "ng-idle": "^1.2.2",
+    "pg": "^5.1.0"
+  }
 }
